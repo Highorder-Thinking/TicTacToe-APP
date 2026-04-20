@@ -1,42 +1,24 @@
-import java.util.Scanner;
+import java.utiimport java.util.Scanner;
 
 public class TicTacToe {
+    // Create a static Scanner so it can be used across different methods
+    static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
-        char[][] board = new char[3][3];
-        Scanner sc = new Scanner(System.in);
-
-        // UC1: Initialize the board
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                board[i][j] = '-';
-            }
-        }
-
-        // UC2: Take User Input
-        System.out.println("Current Board:");
-        displayBoard(board);
-
-        System.out.print("Enter row (0-2): ");
-        int row = sc.nextInt();
-        System.out.print("Enter column (0-2): ");
-        int col = sc.nextInt();
-
-        // Update board with 'X'
-        board[row][col] = 'X';
-
-        System.out.println("\nBoard after your move:");
-        displayBoard(board);
+        // ... (Keep your Board initialization from UC1)
         
-        sc.close();
+        // UC3: Calling the method to get a slot
+        int slot = getSlotNumber();
+        System.out.println("User selected slot: " + slot);
     }
 
-    // Helper method to print the board (cleaner code)
-    public static void displayBoard(char[][] board) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(board[i][j] + " ");
-            }
-            System.out.println();
-        }
+    /**
+     * UC3: Method to read integer input from the user.
+     * Requirement: Read integer input and return the value.
+     */
+    public static int getSlotNumber() {
+        System.out.print("Enter a slot number (1-9): ");
+        int input = sc.nextInt();
+        return input;
     }
 }

@@ -1,45 +1,34 @@
-/**
- * TicTacToe
- * UC1 initializes and displays an empty Tic-Tac-Toe board in a proper
- * grid format. This use case introduces 2D arrays, nested loops,
- * and formatted console output.
- */
-public class TicTacToe {
-
-    static char[][] board = new char[3][3];
+public class TicTacToeConverter {
 
     /**
-     * Entry point of the program. It initializes the board and prints
-     * the empty grid on the console.
+     * UC4: Converts a slot number (1-9) to board indices (row, col)
+     * @param slot The number entered by the player (1-9)
+     * @return An integer array: {row, col}
      */
+    public static int[] convertSlotToIndex(int slot) {
+        // Step 1: Normalize to zero-based indexing (0-8)
+        int index = slot - 1;
+
+        // Step 2: Calculate Row (Integer Division)
+        int row = index / 3;
+
+        // Step 3: Calculate Column (Modulo)
+        int col = index % 3;
+
+        // Step 4: Return coordinates as an array
+        return new int[]{row, col};
+    }
+
     public static void main(String[] args) {
-        initializeBoard();
-        printBoard();
-    }
+        // Testing the command with Slot 5
+        int userSlot = 5;
+        int[] coords = convertSlotToIndex(userSlot);
 
-    /**
-     * Initializes the 3x3 board by filling each cell with '-' to indicate
-     * an empty position.
-     */
-    static void initializeBoard() {
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                board[row][col] = '-';
-            }
-        }
-    }
-
-    /**
-     * Prints the Tic-Tac-Toe board using horizontal and vertical separators
-     * so that the grid structure is clearly visible to the user.
-     */
-    static void printBoard() {
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                System.out.print(board[row][col]);
-                if (col < 2) System.out.print(" ");
-            }
-            System.out.println();
-        }
+        System.out.println("User entered slot: " + userSlot);
+        System.out.println("System maps to: Row " + coords[0] + ", Column " + coords[1]);
+        
+        // Example of accessing a 2D array board:
+        // char[][] board = new char[3][3];
+        // board[coords[0]][coords[1]] = 'X';
     }
 }

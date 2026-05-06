@@ -1,4 +1,4 @@
-public class TicTacToeConverter {
+public class Tic {
 
     /**
      * UC4: Converts a slot number (1-9) to board indices (row, col)

@@ -1,4 +1,4 @@
-public class BoardUtils {
+public class TicTacToe {
     /**
      * Converts a 1-9 slot number to 0-based (row, col) indices.
      * @param slot User input (1-9)
